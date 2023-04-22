@@ -72,6 +72,14 @@ public class TrabalhoECD {
         System.out.println("Tempo de execução por inserção: " + (tempoFimInsercao - tempoInicioInsercao) + " nanosegundos");
         System.out.println("Tempo de execução por seleção: " + (tempoFimSelecao - tempoInicioSelecao) + " nanosegundos");
         System.out.println("Tempo de execução por bolha: " + (tempoFimBolha - tempoInicioBolha) + " nanosegundos");
+        
+        try {
+        int[] array = {3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5};
+        int[] sortedArray = InsertionSort.sort(array.clone());
+        System.out.println(Arrays.toString(sortedArray));
+        }catch (NullPointerException e){
+        System.out.println("O vetor informado é inválido!");
+        }
 
     }
     //mostra o vetor 
@@ -107,19 +115,19 @@ public class TrabalhoECD {
     }
 }
 
-//Ordenção de bolha
-private static void ordenacaoBolha(int[] copiaVetorBolha) {
-    boolean houveTroca = true;
-    while (houveTroca) {
-        houveTroca = false;
-        for (int i = 0; i < copiaVetorBolha.length - 1; i++) {
-            if (copiaVetorBolha[i] > copiaVetorBolha[i+1]) {
-                int temp = copiaVetorBolha[i];
-                copiaVetorBolha[i] = copiaVetorBolha[i+1];
-                copiaVetorBolha[i+1] = temp;
+    //Ordenção de bolha
+    private static void ordenacaoBolha(int[] vetor) {
+     boolean houveTroca = true;
+        while (houveTroca) {
+          houveTroca = false;
+          for (int i = 0; i < vetor.length - 1; i++) {
+            if (vetor[i] > vetor[i+1]) {
+                int temp = vetor[i];
+                vetor[i] = vetor[i+1];
+                vetor[i+1] = temp;
                 houveTroca = true;
             }
         }
     }
-    }
+ }
 }
